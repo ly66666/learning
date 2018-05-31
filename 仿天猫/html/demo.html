@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/demo.css">
+	<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+	<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			function show(){
+				var i=0;
+				$(".slider-img").eq(i).show().siblings().hide();
+				$(".slider-nav").find("li").eq(i).addClass("selected");
+				time=setInterval(function(){
+					i++;
+					if(i==5){
+						i=0;
+					}
+					$(".slider-img").eq(i).show().siblings().hide();
+				 	$(".slider-nav").find("li").eq(i).addClass("selected").siblings().removeClass("selected");
+				},3000)		
+			}
+			$(".slider-nav li").click(function(){
+				clearInterval(time);
+				var i=$(this).index();
+				// console.log(i);
+				$(".slider-img").eq(i).show().siblings().hide();
+			 	$(".slider-nav").find("li").eq(i).addClass("selected").siblings().removeClass("selected");
+			},show());
+			show();
+			$(".main-product,.favorite-item").on("mouseover mouseout",function(event){
+				if (event.type=="mouseover") {
+					$(this).removeClass("bor-1").addClass("bor-2");
+				}else if (event.type=="mouseout") {
+					$(this).removeClass("bor-2").addClass("bor-1");
+				}
+			});
+			$(".categroy-img-con,.top-nav").on("mouseover mouseout",function(e){
+				if(e.type=="mouseover"){
+					$(".panel").hide();
+					$(".nav-item").removeClass("selected");
+				}
+			});
+			$(".nav .nav-item").on("mouseover mouseout",function(e){
+				var i=$(this).index();
+				if (e.type=="mouseover") {
+					$(this).addClass("selected").siblings().removeClass("selected");
+					$(".panel").eq(i).show().siblings(".panel").hide();
+				}
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<div class="top-nav">
+		<div class="nav-content">
+			<div class="left">
+				<span>喵,欢迎来天猫</span>
+				<a href="#" class="login">请登录</a>
+				<a href="#" class="join">免费注册</a>
+			</div>
+			<div class="right">
+				<ul>
+					<li>
+						<div class="mytaobao line">
+							<a href="#">
+								我的淘宝
+								<span></span>
+							</a>
+						</div>
+					</li>
+					<li>
+						<i class="iconfont icon-ai66"></i>
+						<a href="#">购物车</a>
+					</li>
+					<li>
+						<div class="line">
+							<a href="#">
+								收藏夹
+								<span></span>
+							</a>
+						</div>
+					</li>
+					<li>
+						<i class="iconfont icon-shumashouji"></i>
+						<a href="#">手机版
+							<span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">淘宝网</a>
+					</li>
+					<li>
+					<div class="line">
+						<a href="#">商家支持</a>
+						<span></span>
+					</div>
+					</li>
+					<li>
+					<i class="iconfont icon-liebiao"></i>
+					<a href="#">网站导航</a>
+					<span></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="header">
+		<div class="header-con">
+			<div class="log">
+				<img src="../img/log.png" width="240px" height="130px">
+			</div>
+			<div class="search">
+				<div class="search-form">
+					<form class="form-con">
+						<div class="input-con">
+							<input type="text" class="search-input">
+							<label>搜索 天猫 商品/品牌/店铺</label>
+						</div>
+						<button class="search-btn">搜索</button>
+					</form>
+					<ul>
+						<li class="first-li hot_word">
+							<a href="#">针织衫</a>
+						</li>
+						<li>
+							<a href="#">羽绒服</a>
+						</li>
+						<li>
+							<a href="#">四件套</a>
+						</li>
+						<li class="hot_word">
+							<a href="#">电动牙刷</a>
+						</li>
+						<li>
+							<a href="#">客厅灯</a>
+						</li>
+						<li class="hot_word">
+							<a href="#">口红</a>
+						</li>
+						<li>
+							<a href="#">手机</a>
+						</li>
+						<li>
+							<a href="#">运动鞋</a>
+						</li>
+						<li class="hot_word">
+							<a href="#">牛奶</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="categroy-con">
+		<div class="categroy-text-con">
+			<div class="nav-con">
+				<div class="nav-title">
+					<i class="iconfont icon-liebiao"></i>
+					<span>商品分类</span>
+				</div>
+				<ul class="nav">
+					<li class="nav-item nav-item-0">
+						<i class="iconfont icon-nvzhuangneiyi icon"></i>
+						<a href="#">女装</a>
+						/<a href="#">内衣</a>
+					</li>
+					<li class="nav-item nav-item-1">
+						<i class="iconfont icon-nanzhuang icon"></i>
+						<a href="#">男装</a>
+						/<a href="#">运动户外</a>
+					</li>
+					<li class="nav-item nav-item-2">
+						<i class="iconfont icon-xie icon"></i>
+						<a href="#">女鞋</a>
+						/<a href="#">男鞋</a>
+						/<a href="#">箱包</a>
+					</li>
+					<li class="nav-item nav-item-3">
+						<i class="iconfont icon-huazhuangpin icon"></i>
+						<a href="#">美妆</a>
+						/<a href="#">个人护理</a>
+					</li>
+					<li class="nav-item nav-item-4">
+						<i class="iconfont icon-zhubaoshipin icon"></i>
+						<a href="#">腕表</a>
+						/<a href="#">眼镜</a>
+						/<a href="#">珠宝</a>
+					</li>
+					<li class="nav-item nav-item-5">
+						<i class="iconfont icon-shumashouji icon"></i>
+						<a href="#">手机</a>
+						
+						/<a href="#">数码</a>
+						/<a href="#">电脑办公</a>
+					</li>
+					<li class="nav-item nav-item-6">
+						<i class="iconfont icon-muyingwanju icon"></i>
+						<a href="#">母婴</a>
+						/<a href="#">玩具</a>
+					</li>
+					<li class="nav-item nav-item-7">
+						<i class="iconfont icon-shipin icon"></i>
+						<a href="#">零食</a>
+						/<a href="#">茶酒</a>
+						/<a href="#">进口食品</a>
+					</li>
+					<li class="nav-item nav-item-8">
+						<i class="iconfont icon-miaoxiansheng icon"></i>
+						<a href="#">生鲜食品</a>
+					</li>
+					<li class="nav-item nav-item-9">
+						<i class="iconfont icon-jiayongdianqi icon"></i>
+						<a href="#">大家电</a>
+						/<a href="#">生活器材</a>
+					</li>
+					<li class="nav-item nav-item-10">
+						<i class="iconfont icon-jiajujiancai icon"></i>
+						<a href="#">家居建材</a>
+					</li>
+					<li class="nav-item nav-item-11">
+						<i class="iconfont icon-qichepeijian icon"></i>
+						<a href="#">汽车</a>
+						/<a href="#">配件</a>
+						/<a href="#">用品</a>
+					</li>
+					<li class="nav-item nav-item-12">
+						<i class="iconfont icon-jiafangjiashi icon"></i>
+						<a href="#">家纺</a>
+						/<a href="#">家饰</a>
+						/<a href="#">鲜花</a>
+					</li>
+					<li class="nav-item nav-item-13">
+						<i class="iconfont icon-yiyaobaojian icon"></i>
+						<a href="#">医药保健</a>
+					</li>
+					<li class="nav-item nav-item-14">
+						<i class="iconfont icon-jujia icon "></i>
+						<a href="#">厨具</a>
+						/<a href="#">收纳</a>
+						/<a href="#">宠物</a>
+					</li>
+					<li class="nav-item nav-item-15">
+						<i class="iconfont icon-tushuyinxiang icon"></i>
+						<a href="#">图书音像</a>
+					</li>
+				</ul>
+			</div>
+			<div class="panel-con">
+				<div class="panel" >
+					<div class="panel-0" >
+						<div class="text-item">
+							<div class="item-line">
+								<div class="line-title">
+									<div class="title-text">当季流行</div>
+									<i class="iconfont icon-weibiaoti34"></i>
+								</div>
+								<div class="text-list">
+									<a href="#" class="_tuijian hot_word">冬季流行</a>
+									<a href="#" class="_tuijian">商场同款</a>
+									<a href="#" class="_tuijian hot_word">毛呢大衣</a>
+									<a href="#" class="_tuijian">毛织针衫</a>
+									<a href="#" class="_tuijian">裤子</a>
+									<a href="#" class="_tuijian hot_word">气质连衣裙</a>
+									<a href="#" class="_tuijian">无痕文胸</a>
+									<a href="#" class="_tuijian">运动文胸</a>
+									<a href="#" class="_tuijian hot_word">潮流家居服</a>
+									<a href="#" class="_tuijian">百搭船袜</a>
+									<div class="clearfix _space"></div>
+								</div>
+							</div>
+							<div class="item-line">
+								<div class="line-title">
+									<div class="title-text">精选上装</div>
+									<i class="iconfont icon-weibiaoti34"></i>
+								</div>
+								<div class="text-list">
+									<a href="#" class="_tuijian hot_word">毛呢外套</a>
+									<a href="#" class="_tuijian hot_word">羽绒服</a>
+									<a href="#" class="_tuijian hot_word">棉服</a>
+									<a href="#" class="_tuijian">丝绒卫衣</a>
+									<a href="#" class="_tuijian">皮毛一体</a>
+									<a href="#" class="_tuijian">皮草</a>
+									<a href="#" class="_tuijian">毛衣</a>
+									<a href="#" class="_tuijian">衬衫</a>
+									<a href="#" class="_tuijian">卫衣</a>
+									<a href="#" class="_tuijian">针织衫</a>
+									<a href="#" class="_tuijian hot_word">T恤</a>
+									<a href="#" class="_tuijian">短外套</a>
+									<a href="#" class="_tuijian hot_word">小西装</a>
+									<a href="#" class="_tuijian">风衣</a>
+									<div class="clearfix _space"></div>
+								</div>
+							</div>
+							<div class="item-line">
+								<div class="line-title">
+									<div class="title-text">浪漫裙装</div>
+									<i class="iconfont icon-weibiaoti34"></i>
+								</div>
+								<div class="text-list">
+									<a href="#" class="_tuijian hot_word">连衣裙</a>
+									<a href="#" class="_tuijian">半身裙</a>
+									<a href="#" class="_tuijian hot_word">A字裙</a>
+									<a href="#" class="_tuijian hot_word">荷叶边裙</a>
+									<a href="#" class="_tuijian">大摆裙</a>
+									<a href="#" class="_tuijian">包臀裙</a>
+									<a href="#" class="_tuijian hot_word">百褶裙</a>
+									<a href="#" class="_tuijian">长袖连衣裙</a>
+									<a href="#" class="_tuijian">棉麻连衣裙</a>
+									<a href="#" class="_tuijian">牛仔裙</a>
+									<a href="#" class="_tuijian">真丝连衣裙</a>
+									<a href="#" class="_tuijian">蕾丝连衣裙</a>
+									<a href="#" class="_tuijian">印花连衣裙</a>
+									<div class="clearfix _space"></div>
+								</div>
+							</div>
+							<div class="item-line">
+								<div class="line-title">
+									<div class="title-text">女士下装</div>
+									<i class="iconfont icon-weibiaoti34"></i>
+								</div>
+								<div class="text-list">
+									<a href="#" class="_tuijian hot_word">休闲裤</a>
+									<a href="#" class="_tuijian hot_word">阔腿裤</a>
+									<a href="#" class="_tuijian">牛仔裤</a>
+									<a href="#" class="_tuijian">打底裤</a>
+									<a href="#" class="_tuijian">开叉运动裤</a>
+									<a href="#" class="_tuijian">哈伦裤</a>
+									<a href="#" class="_tuijian hot_word">背带裤</a>
+									<a href="#" class="_tuijian">西装裤</a>
+									<a href="#" class="_tuijian">小脚裤</a>
+									<a href="#" class="_tuijian">短裤</a>
+									<div class="clearfix _space"></div>
+								</div>
+							</div>
+							<div class="item-line">
+								<div class="line-title">
+									<div class="title-text">特色女装</div>
+									<i class="iconfont icon-weibiaoti34"></i>
+								</div>
+								<div class="text-list">
+								<a href="#" class="_tuijian hot_word">时尚套装</a>
+								<a href="#" class="_tuijian">休闲套装</a>
+								<a href="#" class="_tuijian hot_word">日系女装</a>
+								<a href="#" class="_tuijian">精选妈妈装</a>
+								<a href="#" class="_tuijian">大码女装</a>
+								<a href="#" class="_tuijian">职业套装</a>
+								<a href="#" class="_tuijian">优雅旗袍</a>
+								<a href="#" class="_tuijian">精致礼服</a>
+								<a href="#" class="_tuijian hot_word">婚纱</a>
+								<a href="#" class="_tuijian">小礼服</a>
+								<a href="#" class="_tuijian hot_word">套装</a>
+								<div class="clearfix _space"></div>
+							</div>
+						</div>
+						<div class="item-line">
+							<div class="line-title">
+								<div class="title-text">家居服</div>
+								<i class="iconfont icon-weibiaoti34"></i>
+							</div>
+							<div class="text-list">
+								<a href="#" class="_tuijian">春夏家居服</a>
+								<a href="#" class="_tuijian">纯棉家居服</a>
+								<a href="#" class="_tuijian">莫代尔家居服</a>
+								<a href="#" class="_tuijian">真丝家居服</a>
+								<a href="#" class="_tuijian">春夏睡裙</a>
+								<a href="#" class="_tuijian">男士家居服</a>
+								<a href="#" class="_tuijian">情侣家居服</a>
+								<div class="clearfix _space"></div>
+							</div>
+						</div>
+					</div>
+						<div class="img-item">
+							<ul>
+								<li>
+									<a href="#"><img src="../img/log1.jpg"></a>
+								</li>
+								<li>
+									<a href="#"><img src="../img/log2.jpg"></a>
+								</li>
+								<li>
+									<a href="#"><img src="../img/log3.jpg"></a>
+								</li>
+								<li>
+									<a href="#"><img src="../img/log4.jpg"></a>
+								</li>
+								<li>
+									<a href="#"><img src="../img/log5.jpg"></a>
+								</li>
+								<li>
+									<a href="#"><img src="../img/log6.jpg"></a>
+								</li>
+								<li>
+									<a href="#"><img src="../img/log7.jpg"></a>
+								</li>
+								<li>
+									<a href="#"><img src="../img/log8.jpg"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="panel" style="display: none;">
+					<div class="panel-1">
+						<div class="text-item">
+							<div class="item-line">
+								<div class="line-title">
+									<div class="title-text">当季流行</div>
+									<i class="iconfont icon-weibiaoti34"></i>
+								</div>
+								<div class="text-list">
+									<a href="#" class="_tuijian hot_word">冬季流行</a>
+									<a href="#" class="_tuijian">商场同款</a>
+									<a href="#" class="_tuijian hot_word">毛呢大衣</a>
+									<a href="#" class="_tuijian">毛织针衫</a>
+									<a href="#" class="_tuijian">裤子</a>
+									<a href="#" class="_tuijian hot_word">气质连衣裙</a>
+									<a href="#" class="_tuijian">无痕文胸</a>
+									<a href="#" class="_tuijian">运动文胸</a>
+									<a href="#" class="_tuijian hot_word">潮流家居服</a>
+									<a href="#" class="_tuijian">百搭船袜</a>
+									<div class="clearfix _space"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="categroy-img-con">
+			<div class="banner-slider">
+				<div class="slider-content">
+					<div class="slider-img">
+						<a href="#">
+							<img src="../img/banner1.png" width="100%" height="100%">
+						</a>
+					</div>
+					<div class="slider-img">
+						<a href="#">
+							<img src="../img/banner2.png" width="100%" height="100%">
+						</a>
+					</div>
+					<div class="slider-img">
+						<a href="#">
+							<img src="../img/banner3.png" width="100%" height="100%">
+						</a>
+					</div>
+					<div class="slider-img">
+						<a href="#">
+							<img src="../img/banner4.png" width="100%" height="100%">
+						</a>
+					</div>
+					<div class="slider-img">
+						<a href="#">
+							<img src="../img/banner5.png" width="100%" height="100%">
+						</a>
+					</div>
+				</div>
+				<div class="slider-nav">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="poster-con">
+		<div class="poster-body">
+			<div class="poster-item first-item">
+				<div class="item-title">
+					<span class="left">品牌闪购</span>
+					<span class="right">BRAND SALE</span>
+					<a href="#"><i class="iconfont icon-iconfontroundright"></i></a>
+				</div>
+				<div class="item-img">
+					<a href="#">
+						<img src="../img/poster1.png" width="100%" height="100%">
+					</a>
+				</div>
+			</div>
+			<div class="poster-item">
+				<div class="item-title">
+					<span class="left">聚名品</span>
+					<span class="right">LUXURY CHANNEL</span>
+					<a href="#">
+						更多
+						<i class="iconfont icon-iconfontroundright"></i>
+					</a>
+				</div>
+				<div class="item-img">
+					<a href="#">
+						<img src="../img/poster2.png" width="100%" height="100%">
+					</a>
+				</div>
+			</div>
+			<div class="poster-item last-item">
+				<div class="item-title">
+					<span class="left">品牌活动</span>
+					<span class="right">BRAND ACTIVITY</span>
+					<a href="#">
+						更多
+						<i class="iconfont icon-iconfontroundright"></i>
+					</a>
+				</div>
+				<div class="item-img">
+					<a href="#">
+						<img src="../img/poster3.png" width="100%" height="100%">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="line-con">
+			<i class="mark mark-red"></i>
+			<div class="name">
+				<div class="title">
+					打造爱巢
+					<div class="sub-name">
+						HOME
+					</div>
+				</div>
+			</div>
+			<div class="menu">
+				<a href="#">家具</a>
+				<a href="#">大家电</a>
+				<a href="#">四件套</a>
+				<a href="#">健康电器</a>
+				<a href="#">厨房电器</a>
+				<a href="#">吸顶灯</a>
+				<a href="#">平板电视</a>
+				<a href="#">装修设计</a>
+				<a href="#">跑步机</a>
+			</div>
+			<div class="main-content">
+				<div class="big-banner">
+					<a href="#">
+						<img src="../img/热水器.png" width="100%" height="100%">
+						<div class="banner-title">
+							<div class="left">
+								<span class="left-title">全球家电</span>
+							</div>
+							<div class="right">
+								<div class="position-right">
+									<span class="right-title">年货换新季</span>
+									<span class="right-title">大屏降价千元</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="product">
+					<a href="#" class="hover">
+						<div class="main-product bor-1">
+							<div class="product-img"><img src="../img/热水壶.png"></div>
+							<div class="product-title">金正 JZW-1220E电热水壶煮茶器玻璃保温电茶壶煮黑茶普洱壶养生壶</div>
+							<div class="product-price">￥89</div>
+						</div>
+					</a>
+					<a href="#" class="hover">
+						<div class="main-product bor-1">
+							<div class="product-img"><img src="../img/被子.png"></div>
+							<div class="product-title">南极人家纺正品纯棉斜纹被套单件全棉单件被套双人床被罩kq</div>
+							<div class="product-price">￥68.3</div>
+						</div>
+					</a>
+					<a href="#" class="hover">
+						<div class="main-product bor-1">
+							<div class="product-img"><img src="../img/面包机.png"></div>
+							<div class="product-title">Bear/小熊 DSL-A20J1 烤面包机家用2片早餐土吐司机 全自动多士炉</div>
+							<div class="product-price">￥119</div>
+						</div>
+					</a>
+					<a href="#" class="hover">
+						<div class="main-product bor-1">
+							<div class="product-img"><img src="../img/鞋柜.png"></div>
+							<div class="product-title">多层加厚鞋柜简约现代家用防尘木质多功能储物收纳置物鞋柜鞋架子</div>
+							<div class="product-price">￥119</div>
+						</div>
+					</a>
+					<a href="#" class="hover">
+						<div class="main-product bor-1">
+							<div class="product-img"><img src="../img/电饭锅.png"></div>
+							<div class="product-title">AUX/奥克斯 WQ305BIH 智能微压IH电饭煲电磁加热电饭锅正品特价</div>
+							<div class="product-price">￥439</div>
+						</div>
+					</a>
+					<a href="#" class="hover">
+						<div class="main-product bor-1">
+							<div class="product-img"><img src="../img/咖啡机.png"></div>
+							<div class="product-title">Donlim/东菱 DL-DK4682意式咖啡机家用商用全半自动蒸汽式咖啡壶</div>
+							<div class="product-price">￥1099</div>
+						</div>
+					</a>
+					<a href="#" class="hover">
+						<div class="main-product bor-1">
+							<div class="product-img"><img src="../img/四件套.png"></div>
+							<div class="product-title">梦洁全棉被套1.5/1.8m床上用品梦洁家纺成人学生非四件套纯棉套件</div>
+							<div class="product-price">￥198</div>
+						</div>
+					</a>
+					<a href="#" class="hover">
+						<div class="main-product bor-1">
+							<div class="product-img"><img src="../img/苏打水机.png"></div>
+							<div class="product-title">格盾自制苏打水机家用商用气泡水机碳酸饮料机果汁机DIY包邮</div>
+							<div class="product-price">￥788</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="line-con">
+			<i class="mark mark-green"></i>
+			<div class="name">
+				<div class="title">
+					居家生活
+					<div class="sub-name">GROCERY & HEALTH</div>
+				</div>
+			</div>
+			<div class="menu">
+				<ul>
+					<li>零食</li>
+					<li>牛奶</li>
+					<li>居家饰品</li>
+					<li>保温杯</li>
+					<li>保健药</li>
+					<li>常用药</li>
+					<li>热门图书</li>
+					<li>洗发水</li>
+					<li>家庭清洁</li>
+					<li>狗粮</li>
+				</ul>
+			</div>
+			<div class="main-content">
+				<div class="big-banner">
+					<a href="#">
+						<img src="../img/柚子.jpg" width="100%" height="100%">
+						<div class="banner-title">
+							<div class="left">
+								<span class="left-title">食品酒水</span>
+							</div>
+							<div class="right">
+								<div class="position-right">
+									<span class="right-title">年货买不停</span>
+									<span class="right-title">抢百元劵</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="product">
+				<a href="#">
+					<div class="main-product bor-1">
+						<div class="product-img">
+							<img src="../img/亲子装.jpg" width="100%" height="100%">
+						</div>
+						<div class="product-title">亲子装冬装套装2017新款全家装时尚红色加绒卫衣母子母女装两件</div>
+						<div class="product-price">￥199</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="main-product bor-1">
+						<div class="product-img">
+							<img src="../img/洗碗液.jpg" width="100%" height="100%">
+						</div>
+						<div class="product-title">澳洲进口Morning fresh洗洁精去污洗碗液不伤手400ml*3瓶 组合装</div>
+						<div class="product-price">￥69.9</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="main-product bor-1">
+						<div class="product-img">
+							<img src="../img/牛奶.jpg" width="100%" height="100%">
+						</div>
+						<div class="product-title">德国好沃得进口脱脂牛奶1L*12盒</div>
+						<div class="product-price">￥89</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="main-product bor-1">
+						<div class="product-img">
+							<img src="../img/漱口水.png" width="100%" height="100%">
+						</div>
+						<div class="product-title">香港遇见香芬漱口水 除口臭异味持久清新口气 深层清洁去牙渍舌苔</div>
+						<div class="product-price">￥29.8</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="main-product bor-1">
+						<div class="product-img">
+							<img src="../img/奶粉.jpg" width="100%" height="100%">
+						</div>
+						<div class="product-title">雅培 欧版亲体 幼儿配方奶粉 3段 900g*2</div>
+						<div class="product-price">￥410</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="main-product bor-1">
+						<div class="product-img">
+							<img src="../img/打印机.jpg" width="100%" height="100%">
+						</div>
+						<div class="product-title">惠普HP T520绘图仪 24英寸无线打印A1专业打印cad工程制图线条图</div>
+						<div class="product-price">￥13299</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="main-product bor-1">
+						<div class="product-img">
+							<img src="../img/海苔.jpg" width="100%" height="100%">
+						</div>
+						<div class="product-title">包邮 韩国进口零食品 海牌海苔+九日海苔组合装32包组合 寿司海苔</div>
+						<div class="product-price">￥23</div>
+					</div>
+				</a>
+				<a href="#">
+					<div class="main-product bor-1">
+						<div class="product-img">
+							<img src="../img/蓝莓干.png" width="100%" height="100%">
+						</div>
+						<div class="product-title">美国原装进口HALBAK豪佰客天然蓝莓干567g果脯零食果干无添加蓝梅</div>
+						<div class="product-price">￥67</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="favorite-box">
+			<div class="favorite-title">
+				<span class="title-text">
+					——
+					<i class="iconfont icon-xihuan"></i>
+					猜你喜欢——
+				</span >
+			</div>
+			<div class="favorite-ul">
+				<ul>
+					<li class="favorite-item bor-1">
+						<a href="#" class="fv-a">
+							<span class="fv-img"><img src="../img/化妆水.png"></span>
+							<div class="fv-title">【直营】SK-II/SKII/SK2神仙水 美白精华露230ml/330ml</div>
+							<div class="fv-price">￥399</div>
+						</a>
+					</li>
+					<li class="favorite-item bor-1">
+						<a href="#" class="fv-a">
+							<span class="fv-img"><img src="../img/羽绒服.png"></span>
+							<div class="fv-title">太平鸟女装2017秋冬新款纯色保暖羽绒服女中长款</div>
+							<div class="fv-price">￥499</div>
+						</a>
+					</li>
+					<li class="favorite-item bor-1">
+						<a href="#" class="fv-a">
+							<span class="fv-img"><img src="../img/外套.png"></span>
+							<div class="fv-title">艾格Weekend2017冬季bling口袋装饰连帽棉服女8A0232009</div>
+							<div class="fv-price">￥599</div>
+						</a>
+					</li>
+					<li class="favorite-item bor-1">
+						<a href="#" class="fv-a">
+							<span class="fv-img"><img src="../img/口红和香水.png"></span>
+							<div class="fv-title">MAC/魅可魅色香吻系列限量唇膏口红香水蓝调正红子弹头rubywoo</div>
+							<div class="fv-price">￥170</div>
+						</a>
+					</li>
+					<li class="favorite-item last-item bor-1">
+						<a href="#" class="fv-a">
+							<span class="fv-img"><img src="../img/暖风机.png"></span>
+							<div class="fv-title">取暖器暖风机家用迷你浴室小太阳电热电暖器办公室节能省电电暖气</div>
+							<div class="fv-price">￥170</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+	</div>
+</body>
+</html>
