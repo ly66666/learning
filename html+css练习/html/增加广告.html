@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+	<!-- <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_529594_bhhbpdb03rspp66r.css"> -->
+	<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="../js/repeat_css.js"></script>
+	<script type="text/javascript" src="../js/icon-2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".nopic-box").click(function(){
+				$(".file-view").show();
+			});
+		});
+	</script>
+	<style type="text/css">
+		.icon {
+       		width: 1em; height: 1em;
+       		vertical-align: -0.15em;
+      		fill: currentColor;
+      		overflow: hidden;
+   		}
+	</style>
+</head>
+<body>
+	<div id="one"></div>
+	<div id="two"></div>
+	<div id="three"></div>
+	<div class="content">
+		<div class="space-1"></div>
+		<div class="container" style="width: 1136px;">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-2">
+								<label class="pull-right">广告标题：</label>
+							</div>
+							<div class="col-sm-10 pull-left">
+								<input type="text" name="">
+								<span>@glha.com</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-2">
+								<label class="pull-right">封面图：</label>
+							</div>
+							<div class="col-sm-10 pull-left">
+								<div class="ace-file-input ace-file-multiple pointer pull-left"  data-crop="true" data-crop-size="600*300">
+									<div class="nopic-box" style="display: block;">
+										<input class="picvalue picurl" name="pic" type="hidden" value="">
+										<label class="file-label" >上传封面图</label>
+										<div>
+											<span class="file-name">
+												<svg class="icon" aria-hidden="true">
+													<use xlink:href="#icon-shangchuan"></use>
+												</svg>
+											</span>
+											<span style="color: #aaaaaa;">文件尺寸:600*300</span>
+										</div>
+									</div>
+									<div class="file-view">
+										<input type="file">
+										<span>请选择一张600*300的图片，编辑后保存
+										<br>
+										（仅支持小于1M的jpg，gif，png格式图片）
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

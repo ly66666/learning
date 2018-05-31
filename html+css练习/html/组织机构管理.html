@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+	<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="../js/repeat_css.js"></script>
+	<script type="text/javascript" src="../js/icon-3.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".dd-add").click(function(){
+				$(".layer").fadeIn(500);
+			});
+			$(".close,.btn-default").click(function(){
+				$(".layer").fadeOut(500);
+			});
+			$(".layer_btn").click(function(){
+				var _this=$(this),
+					$layer_val=_this.parents(".content_main");
+				var text1=$layer_val.find(".modal_body").find(".nav-input-1").val();
+				var text2=$layer_val.find(".modal_body").find(".code-input-1").val();
+				var _nav='<li class="dd-item">'
+					_nav+='<div class="dd-handle clearfix">';
+					_nav+='<span class="nav-title orange pull-left">'+text1+'</span>';
+					_nav+=	'<span class="org-code pull-left light-grey">'+text2+'</span>';
+					_nav+=	'<div class="pull-right action-btn">';
+					_nav+=		'<a href="#" class="blue" style="margin-right: 5px;font-size: 15px;text-decoration: none;" >';
+					_nav+=			'<svg class="icon" aria-hidden="true">';
+					_nav+=				'<use xlink:href="#icon-pencil">';
+					_nav+=			'</svg>';
+					_nav+=		'</a>';
+					_nav+=		'<a href="#" class="red" style="font-size: 15px;">';
+					_nav+=			'<svg class="icon" aria-hidden="true">';
+					_nav+=				'<use xlink:href="#icon-lajitong">';
+					_nav+=			'</svg>';
+					_nav+=		'</a>';
+					_nav+=	'</div>';
+					_nav+='</div>';
+					_nav+='</li>';
+				$(".dd-list").eq(0).append(_nav);
+				$(".layer").fadeOut(500);
+				b();
+			});
+			function b(){
+			$(".red").click(function(){
+				$(this).parents("li").remove();
+			});
+			$(".blue").click(function(){
+				var _this = $(this),
+					_handle = _this.parents(".dd-handle");
+				var text1=_handle.find(".nav-title").text();
+				var text2=_handle.find(".org-code").text();
+				// $(this).parent().siblings(".edit-box").show();
+				_handle.find(".edit-box").show();
+				_handle.find(".nav-title").hide();
+				_handle.find(".org-code").hide();
+				_handle.find(".action-btn").hide();
+				_handle.find(".edit-box").find(".nav-input").val(text1);
+				_handle.find(".edit-box").find(".code-input").val(text2);
+			});
+			$(".edit-cancel").click(function(){
+				var _this = $(this),
+					_handle = _this.parents(".dd-handle");
+				_handle.find(".edit-box").hide();
+				_handle.find(".nav-title").show();
+				_handle.find(".org-code").show();
+				_handle.find(".action-btn").show();
+				_handle.find(".edit-box").find(".nav-input").val("");
+				_handle.find(".edit-box").find(".code-input").val("");
+			});
+			$(".edit-confirm").click(function(){
+				var _this = $(this),
+					_handle = _this.parents(".dd-handle");
+				var text1=_handle.find(".edit-box").find(".nav-input").val();
+				var text2=_handle.find(".edit-box").find(".code-input").val();
+				_handle.find(".nav-title").text(text1).show();
+				_handle.find(".org-code").text(text2).show();
+				_handle.find(".action-btn").show();
+				_handle.find(".edit-box").find(".nav-input").val("");
+				_handle.find(".edit-box").find(".code-input").val("");
+				_handle.find(".edit-box").hide();
+			});
+		}
+		});
+	</script>
+	<style type="text/css">
+		.icon {
+   			width: 1em; height: 1em;
+  			vertical-align: -0.15em;
+   			fill: currentColor;
+  			overflow: hidden;
+		}
+		action-btn a {
+    		/*margin: 0 20px;*/
+    		display: inline-block;
+    		opacity: .85;
+    		transition: all .1s;
+    		font-size:15px;
+    		text-decoration: none;
+		}
+		.form-actions {
+    		display: block;
+    		background-color: #f5f5f5;
+    		border-top: 1px solid #e5e5e5;
+    		margin-bottom: 20px;
+   		 	margin-top: 20px;
+    		padding: 19px 20px 20px;
+    		height: 100%;
+		}
+		.form-actions .btn {
+   		 	display: inline-block;
+  		 	color: #FFF!important;
+   			/*text-shadow: 0 -1px 0 rgba(0,0,0,0.25)!important;
+  		  	background-image: none!important;*/
+   			border-radius: 0;
+   			/*box-shadow: none!important;
+   			-webkit-transition: all ease .15s;
+  		 	transition: all ease .15s;*/
+  		 	cursor: pointer;
+  		  	vertical-align: middle;
+   		 	margin: 0 10px;
+  			position: relative;
+		}
+		.layer{
+			display: none;
+			height: 100%;
+			width: 100%;
+			background: rgba(0,0,0,.5);
+			position: absolute;
+			overflow: hidden;
+			z-index: 1;
+		}
+		.layer_content{
+			position: absolute;
+			width: 400px;
+			height: 300px;
+			top: 30%;
+			left: 35%;
+			border-radius: 5px;
+			background-color: #fff;
+			box-shadow: 0px 0px 20px #333333;
+		}
+		.content_header{
+			position: relative;
+			background-color: #efefef;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			height: 40px;
+			color: #669fc7;
+			padding-left: 12px;
+			/*padding-right: 3px;*/
+			padding-top: 3px;
+			margin-top:-9px;
+		}
+		.modal_body {
+    		position: relative;
+    		padding: 20px;
+		}
+		.modal_footer {
+    		padding: 25px 20px 20px;
+    		margin-top: 15px;
+    		text-align: right;
+    		border-bottom-left-radius: 5px;
+    		border-bottom-right-radius: 5px;
+    		border-top: 1px solid #e5e5e5;
+    		background-color: #eff3f8;
+    		margin-bottom:-40px;
+		}
+		h4{
+			display: inline-block;
+		}
+		.close{
+			text-align: right;
+ 			padding: 10px;
+  			cursor: pointer;
+		}
+		/*a:hover{
+			color: red;
+		}*/
+	</style>
+</head>
+<body>
+	<div class="layer">
+		<div class="layer_content">
+			<div class="content_header">
+				<h4>新建机构</h4>
+				<img src="../img/close.png" class="close">
+			</div>
+			<div class="content_body">
+				<div class="content_main">
+					<div class="modal_body">
+						<div>
+							<label>机构名称:</label>
+							<input type="text" class="form-control nav-input-1">
+						</div>
+						<div class="space-2"></div>
+						<div>
+							<label>机构代码:</label>
+							<input type="text" class="form-control code-input-1">
+						</div>
+					</div>
+					<div class="modal_footer">
+						<button class="btn btn-default">取消</button>
+						<button class="btn btn-primary layer_btn">确认</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="one"></div>
+	<div id="two"></div>
+	<div id="three"></div>
+	<div class="space-1"></div>
+	
+	<div class="content">
+		<div class="dd">
+			<ol class="dd-list">
+				<li class="dd-item" >
+					<svg class="icon" aria-hidden="true">
+  						<use xlink:href="#icon-subtract"></use>
+					</svg>
+					<div class="dd-handle clearfix">
+						<span class="nav-title orange pull-left">格力物业</span>
+						<span class="org-code pull-left light-grey">PNC1548556</span>
+						<div class="pull-right action-btn">
+							<a href="#" class="blue" style="margin-right: 5px;font-size: 15px;text-decoration: none;" >
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#icon-pencil">
+								</svg>
+							</a>
+							<a href="#" class="red" style="font-size: 15px;">
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#icon-lajitong">
+								</svg>
+							</a>
+						</div>
+						<div class="edit-box text-right pull-left">
+							<input type="text" class="form-control nav-input">
+							<div class="space-3"></div>
+							<input type="text" class="form-control code-input">
+							<div class="space-3"></div>
+							<button class="btn btn-xs edit-cancel">取消</button>
+							<button class="btn btn-xs btn-primary edit-confirm">确定</button>
+						</div>
+					</div>
+					<ol class="dd-list">
+						<li class="dd-item">
+							<div class="dd-handle clearfix">
+								<span class="nav-title orange pull-left">格力海岸</span>
+								<span class="org-code pull-left light-grey">PNC1548514</span>
+								<div class="pull-right action-btn">
+									<a href="#" class="blue" style="margin-right: 5px;font-size: 15px;text-decoration: none;" >
+										<svg class="icon" aria-hidden="true">
+											<use xlink:href="#icon-pencil">
+										</svg>
+									</a>
+									<a href="#" class="red" style="font-size: 15px;">
+										<svg class="icon" aria-hidden="true">
+											<use xlink:href="#icon-lajitong">
+										</svg>
+									</a>
+								</div>
+								<div class="edit-box text-right pull-left">
+									<input type="text" class="form-control nav-input">
+									<div class="space-3"></div>
+									<input type="text" class="form-control code-input">
+									<div class="space-3"></div>
+									<button class="btn btn-xs edit-cancel">取消</button>
+									<button class="btn btn-xs btn-primary edit-confirm">确定</button>
+								</div>
+							</div>
+						</li>
+						<li class="dd-item">
+							<div class="dd-handle clearfix">
+								<span class="nav-title orange pull-left">格力广场</span>
+								<span class="org-code pull-left light-grey">PNC1548589</span>
+								<div class="pull-right action-btn">
+									<a href="#" class="blue" style="margin-right: 5px;font-size: 15px;text-decoration: none;" >
+										<svg class="icon" aria-hidden="true">
+											<use xlink:href="#icon-pencil">
+										</svg>
+									</a>
+									<a href="#" class="red" style="font-size: 15px;">
+										<svg class="icon" aria-hidden="true">
+											<use xlink:href="#icon-lajitong">
+										</svg>
+									</a>
+								</div>
+								<div class="edit-box text-right pull-left">
+									<input type="text" class="form-control nav-input">
+									<div class="space-3"></div>
+									<input type="text" class="form-control code-input">
+									<div class="space-3"></div>
+									<button class="btn btn-xs edit-cancel">取消</button>
+									<button class="btn btn-xs btn-primary edit-confirm">确定</button>
+								</div>								
+							</div>
+						</li>
+					</ol>
+				</li>
+				<li class="dd-item" >
+					<svg class="icon" aria-hidden="true">
+  						<use xlink:href="#icon-subtract"></use>
+					</svg>
+					<div class="dd-handle clearfix">
+						<span class="nav-title orange pull-left">万科物业</span>
+						<span class="org-code pull-left light-grey">PNC1548556</span>
+						<div class="pull-right action-btn">
+							<a href="#" class="blue" style="margin-right: 5px;font-size: 15px;text-decoration: none;" >
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#icon-pencil">
+								</svg>
+							</a>
+							<a href="#" class="red" style="font-size: 15px;">
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#icon-lajitong">
+								</svg>
+							</a>
+						</div>
+								<div class="edit-box text-right pull-left">
+									<input type="text" class="form-control nav-input">
+									<div class="space-3"></div>
+									<input type="text" class="form-control code-input">
+									<div class="space-3"></div>
+									<button class="btn btn-xs edit-cancel">取消</button>
+									<button class="btn btn-xs btn-primary edit-confirm">确定</button>
+								</div>						
+					</div>
+					<ol class="dd-list">
+						<li class="dd-item">
+							<div class="dd-handle clearfix">
+								<span class="nav-title orange pull-left">万科金色海岸</span>
+								<span class="org-code pull-left light-grey">PNC1548514</span>
+								<div class="pull-right action-btn">
+									<a href="#" class="blue" style="margin-right: 5px;font-size: 15px;text-decoration: none;" >
+										<svg class="icon" aria-hidden="true">
+											<use xlink:href="#icon-pencil">
+										</svg>
+									</a>
+									<a href="#" class="red" style="font-size: 15px;">
+										<svg class="icon" aria-hidden="true">
+											<use xlink:href="#icon-lajitong">
+										</svg>
+									</a>
+								</div>
+								<div class="edit-box text-right pull-left">
+									<input type="text" class="form-control nav-input">
+									<div class="space-3"></div>
+									<input type="text" class="form-control code-input">
+									<div class="space-3"></div>
+									<button class="btn btn-xs edit-cancel">取消</button>
+									<button class="btn btn-xs btn-primary edit-confirm">确定</button>
+								</div>								
+							</div>
+						</li>
+						<li class="dd-item">
+							<div class="dd-handle clearfix">
+								<span class="nav-title orange pull-left">万科大世界</span>
+								<span class="org-code pull-left light-grey">PNC1548589</span>
+								<div class="pull-right action-btn">
+									<a href="#" class="blue" style="margin-right: 5px;font-size: 15px;text-decoration: none;" >
+										<svg class="icon" aria-hidden="true">
+											<use xlink:href="#icon-pencil">
+										</svg>
+									</a>
+									<a href="#" class="red" style="font-size: 15px;">
+										<svg class="icon" aria-hidden="true">
+											<use xlink:href="#icon-lajitong">
+										</svg>
+									</a>
+								</div>
+								<div class="edit-box text-right pull-left">
+									<input type="text" class="form-control nav-input">
+									<div class="space-3"></div>
+									<input type="text" class="form-control code-input">
+									<div class="space-3"></div>
+									<button class="btn btn-xs edit-cancel">取消</button>
+									<button class="btn btn-xs btn-primary edit-confirm" id="#confirm-1">确定</button>
+								</div>								
+							</div>
+						</li>
+					</ol>
+				</li>
+			</ol>
+			<div class="dd-add">
+				<span class="dd-block">添加</span>
+			</div>
+		</div>
+		<div class="form-actions clearfix">
+			<button class="btn btn-info" style="margin-left: 280px;">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-gou">
+				</svg>
+				保存
+			</button>
+			<button class="btn" type="reset">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-huifu">
+				</svg>
+				恢复默认
+			</button>
+		</div>
+	</div>
+</body>
+</html>

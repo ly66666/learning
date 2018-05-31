@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+	<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="../js/repeat_css.js"></script>
+	<style type="text/css">
+		.steps{
+			position: relative;
+			list-style: none;
+		}
+		.steps li{
+			float: left;
+		}
+		/*.steps span{
+			display: inline-block;
+		}*/
+		.step1,.step3{
+			width: 20%;
+		}
+		.step2{
+			width: 40%;
+		}
+		.step{
+			width: 40px;
+			height: 40px;
+			background-color: #fff;
+			border: 5px solid #ced1d6;
+			border-radius: 100%;
+			font-size: 15px;
+			line-height: 30px;
+			text-align: center;
+			display: inline-block;
+		}
+		.step-hr{
+			width: 185px;
+			height: 4px;
+			background-color: #ced1d6;
+			position: absolute;
+			margin-top:18px;
+			z-index: -1;
+		}
+		.hr-1{
+			width: 221px;
+		}
+		.hr-2{
+			width: 443px;
+		}
+		input[type="text"]{
+			border-radius: 0!important;
+    		color: #858585;
+    		border: 1px solid #d5d5d5;
+    		font-size: 14px;
+    		line-height: 1.2;
+    		padding: 5px 4px;
+		}
+		input[type="radio"].ace {
+    		opacity: 0;
+    		position: absolute;
+    		z-index: 12;
+    		width: 20px;
+    		height: 20px;
+    		cursor: pointer;
+		}
+		input[type="radio"]+ .checked-radio{
+			position: relative;
+    		z-index: 11;
+    		display: inline-block;
+    		margin-top:6px ;
+    		line-height:20px;
+    		min-height: 20px;
+    		min-width: 20px;
+    		/*border:1px solid #e3e3e3;
+    		border-radius: 100%; */
+			background: url(../img/radiobox.png);
+			/*background-repeat: no-repeat;*/
+			background-position: -20px 0;
+		}
+		input[type="radio"]:checked+ .checked-radio{
+			background: url(../img/radiobox.png);
+			background-position: 0px 0px; 
+    		position: relative;
+    		z-index: 11;
+    		display: inline-block;
+    		margin-top:6px ;
+    		line-height:20px;
+    		min-height: 20px;
+    		min-width: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$(".chosen-container").on("click",function(){
+				$(this).siblings("select").show();
+			});
+			$("option").click(function(){
+				var _this=$(this)
+				var _chosen=_this.parents(".chosen-container");
+				var _text1=$(this).text();
+				var _li='<li class="search-choice">';
+					_li+='<span>'
+						+_text1+
+						'<img src="../img/close.png" width="8px"; height="8px";>'
+					_li+='</span>';
+					_li+='</li>';
+				console.log(_li);
+				
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="one"></div>
+	<div id="two"></div>
+	<div id="three"></div>
+	<div class="space-1"></div>
+	<div class="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="steps-box">
+						<ul class="steps">
+							<li class="step1">
+								<span class="step-hr hr-1"></span>
+								<span class="step">1</span>
+							</li>
+							<li class="step2">
+								<span class="step-hr hr-2"></span>
+								<span class="step" style="margin-left: 200px;">2</span>
+							</li>
+							<li class="step3">
+								<span class="step-hr"></span>
+								<span class="step pull-right">3</span>
+							</li>
+						</ul>
+					</div>
+					<div class="space-4 clear"></div>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">服务名称:</label>
+							<div class="col-sm-10">
+								<input type="text" class="col-sm-2">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">服务类型:</label>
+							<div class="col-sm-10">
+								<label style="margin-right: 20px;">
+									<input type="radio" class="ace">
+									<span class="checked-radio"></span>
+									<label>服务类</label>
+								</label>
+								<label>
+									<input type="radio" class="ace">
+									<span class="checked-radio"></span>
+									<label>预约类</label>
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">服务分类</label>
+							<div class="col-sm-10">
+								<select>
+									<option value="0">物业服务</option>
+									<option value="1">海岸服务</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">服务小区</label>
+							<div class="col-sm-10">
+								<select multiple="multiple" class="width-30 chosen-select form-control" id="form-field-select-4" data-placeholder="请选择" >
+									<option value="AL">格力广场</option>
+									<option value="AK">格力海岸</option>
+								</select>
+								<div class="chosen-container chosen-container-multi" style="width: 286px;height: 35px!important; border:1px solid #aaa;">
+									<ul class="chosen-choices" >
+<!-- 								<li class="search-choice">
+									 	<span>格力海岸
+									 		<img src="../img/close.png" width="8px"; height="8px";>
+									 	</span>
+									 </li>
+									 <li class="search-choice">
+									 	<span>格力海岸
+									 		<img src="../img/close.png" width="8px"; height="8px";>
+									 	</span>
+									 </li> -->
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="form-group">
+							<label class="col-sm-2 control-label">缴纳时间</label>
+							<div class="col-sm-10">
+								<input type="text" style="position: absolute;z-index: -1">
+							</div>
+						</div> -->
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="../css/content.css"/>
+	<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="../js/repeat_css.js"></script>
+	<script type="text/javascript" src="../js/icon-1.js"></script>
+	<script type="text/javascript" src="../js/iconfont.js"></script>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin:0;
+		}
+		.icon {
+		   width: 1em; height: 1em;
+		   vertical-align: -0.15em;
+		   fill: currentColor;
+		   overflow: hidden;
+		}
+		.content_1{
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div id="one"></div>
+	<div id="two"></div>
+	<div id="three"></div>
+	<div class="content">
+		<div class="space-1"></div>
+		<div class="content_1">
+			<div class="pull-left">
+			状态：
+			<select>
+				<option value="0">全部状态</option>
+				<option value="1">待受理</option>
+				<option value="2">已受理</option>
+				<option value="3">待支付</option>
+				<option value="4">服务中</option>
+				<option value="5">已关闭</option>
+				<option value="6">用户已取消</option>
+			</select>
+		</div>
+		<div class="pull-left text-left clearfix" style="margin-left: 20px;">
+			<label class="pull-left" style="margin-top: 6px;">下单时间：</label>
+			<div class="input-group" style="width: 250px;margin-left:0px">
+				<span class="input-group-addon">
+					<svg class="icon" aria-hidden="true" style="font-size: 18px">
+ 						<use xlink:href="#icon-rili"></use>
+					</svg>
+				</span>
+				<input type="JS_text" value="2017.12.30-2018.1.1" class="form-control">
+			</div>
+		</div>
+		<div class="pull-left" style="margin-left: 20px;">
+			<select>
+				<option value="0">订单编号</option>
+				<option value="1">姓名手机</option>
+			</select>
+			<input type="text" name="">
+		</div>
+		<span class="pull-right" style="margin:3px 0 0 10px;">
+			<button class="btn btn-purple btn-sm" >查询
+				<svg class="icon" aria-hidden="true" >
+ 					<use xlink:href="#icon-sousuo"></use>
+				</svg>
+			</button>
+		</span>
+		</div>
+		<div class="space-2"></div>
+		<table class="table table-hover table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>服务</th>
+					<th>单价(元)</th>
+					<th>数量</th>
+					<th>购买人</th>
+					<th>支付信息</th>
+					<th>订单/支付状态</th>
+					<th>订单操作</th>
+				</tr>
+				<tbody>
+					<tr>
+						<td colspan="7" class="text-primary">2014-07-10 订单编号546548976546</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="profile-picture s-pic-box">
+								<img src="../img/profile-pic.jpg" class="img-responsive">
+							</span>
+							保洁服务，按次-普通标准
+						</td>
+						<td class="vm">面议</td>
+						<td class="vm">1</td>
+						<td class="vm">陈果 18952156399</td>
+						<td class="vm text-danger">
+							<svg class="icon " aria-hidden="true">
+								<use xlink:href="#icon-baocuo"></use>
+							</svg>
+							余额:待面议
+							<span class="label label-primary">
+								现金支付
+							</span>
+						</td>
+						<td class="vm text-danger">
+							<svg class="icon " aria-hidden="true">
+								<use xlink:href="#icon-yuan"></use>
+							</svg>
+							待受理
+						</td>
+						<td class="vm">
+							<button class="btn btn-xs btn-inverse">查看</button>
+							<button class="btn btn-xs btn-pink">受理</button>
+							<button class="btn btn-primary btn-xs">修改</button>
+							<button class="btn btn-xs btn-danger">关闭</button>
+							<button class="btn btn-xs btn-danger">订单跟踪</button>
+						</td>
+					</tr>
+				</tbody>
+			</thead>
+		</table>
+		<div class="widget-box no-border" style="margin-top: 150px;">
+			<div class="widget-header no-border">
+				<h4>串单验证</h4>
+			</div>
+			<div class="widget-body no-border">
+				<div class="widget-main">
+					<div class="space-1"></div>
+					<form>
+						<div class="form-group clearfix">
+							<span class="text-right">串号：</span>
+							<span class="form-text">AG4566969</span>
+						</div>
+						<div class="form-group clearfix">
+							<span class="text-right">订单号：</span>
+							<span class="form-text">20140908</span>
+						</div>
+						<div class="form-group clearfix">
+							<span class="text-right">购买人：</span>
+							<span class="form-text">张丹</span>
+						</div>
+						<!-- <div class="form-group clearfix">
+							<span class="text-right">电话：</span>
+							<span class="form-text">9090900</span>
+						</div>
+						<div class="form-group clearfix">
+							<span class="text-right">购买日期</span>
+							<span class="form-text">2014.09.08</span>
+						</div>
+						<div class="form-group clearfix">
+							<span class="text-right">订单金额：</span>
+							<span class="form-text">488.00</span>
+						</div>
+						<div class="form-group clearfix">
+							<span class="text-right">商品信息：</span>
+							<span class="form-text">生菜×1</span>
+							<span class="form-text">苦瓜×1</span>
+							<span class="form-text">烧锅×1</span>
+						</div> -->
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</body>
+</html>

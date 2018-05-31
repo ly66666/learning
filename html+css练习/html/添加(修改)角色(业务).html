@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+	<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="../js/repeat_css.js"></script>
+	<style type="text/css">
+		input[type=checkbox]{
+    		width: 18px;
+    		height: 18px;
+    		opacity: 0;
+    		
+    		left: 0;
+    		top: 0;
+    		z-index: 4;
+    		margin: 0;
+   		 	cursor: pointer;
+   		 	/*margin-top: 50px;*/
+		}
+		.checkBox {
+			position: absolute;
+    		float: left;
+    		width: 20px;
+    		height: 20px;
+    		border: 0;
+    		background-image: url(../img/checkbox.png);
+    		background-repeat: no-repeat;
+    		background-position: -20px 0;
+		}
+		/*.checkBox {
+    		float: left;
+    		width: 18px;
+    		height: 18px;
+    		border: 0;
+    		border:1px solid #e3e3e3;
+		}*/
+		.content-box{
+			border: 0;
+    		box-shadow: none;
+		}
+		.content-header{
+			border: 0;
+    		border-bottom: 1px solid #dce8f1;
+    		color: #4383b4;
+    		margin-left: 20px;
+    		line-height: 38px;
+		}
+		.right{
+			margin-right: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$(".checkBox").click(function(){
+				$(this).css("background-color","red");
+			})
+		})
+	</script>
+</head>
+<body>
+	<div id="one"></div>
+	<div id="two"></div>
+	<div id="three"></div>
+	<div class="space-1"></div>
+	<div class="content">
+		<div class="container">
+			<div class="row">
+				<form class="form-horizontal">
+					<div>
+						<label class="pull-left control-label">角色名:</label>
+						<div class="col-sm-10">
+							<input type="text" class="col-sm-2">
+						</div>
+					</div>
+					<div class="space-2 clear"></div>
+					<div>
+						<label class="control-label">添加权限:</label>
+					</div>
+					<div style="padding: 20px 40px;">
+						<div class="step-box">
+							<div class="first-step">
+								<input type="checkbox" class="nowcheck" name="checkbox" value="1">
+								<p class="checkBox"></p>
+								<label for="">羽毛球</label>
+								<!-- <input type="checkbox">
+								<span class="checkBox"></span>
+								<b>一级目录</b> -->
+							</div>
+							<div class="space-2"></div>
+							<div class="hr"></div>
+							<div class="content-box">
+								<div class="content-header">
+									<!-- <input type="checkbox">
+									<p class="checkBox"></p>
+									<h5>楼盘管理</h5> -->
+								</div>
+								<div class="content-toolbar"></div>
+								<div class="content-body">
+									<div class="content-main">
+										<div class="form-group col-sm-10">
+											<label class="right">
+												
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="step-box"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
